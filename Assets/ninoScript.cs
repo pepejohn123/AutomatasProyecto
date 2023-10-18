@@ -20,6 +20,10 @@ public class ninoScript : MonoBehaviour
 
     public float graceTime = 0.2f;
 
+    public float gameOverTime = 3.0f;
+    [SerializeField] public GameOverScript GameOverScreen;
+
+
  
     // Start is called before the first frame update
     void Start()
@@ -55,20 +59,15 @@ public class ninoScript : MonoBehaviour
                 animator.SetInteger("State", 0);
                 break;
             case (1,0): //Puño viejita, viejito idle
-                animator.SetInteger("State", 2);
-                animator2.SetInteger("State", 3);
-                animator3.SetInteger("State", 3);
+                StartCoroutine(GameOver());
+
                 break;
             case (2,0): //Patada viejita, viejito idle
-                animator.SetInteger("State", 2);
-                animator2.SetInteger("State", 3);
-                animator3.SetInteger("State", 3);
+                StartCoroutine(GameOver());
 
                 break;
             case (1,1): //Puño viejita, viejito salta
-                animator.SetInteger("State", 2);
-                animator2.SetInteger("State", 3);
-                animator3.SetInteger("State", 3);
+                StartCoroutine(GameOver());
                 break;
             case (1,2): //Puño viejita, viejito se agacha
                 animator.SetInteger("State", 1);
@@ -80,9 +79,7 @@ public class ninoScript : MonoBehaviour
                 score.score++;
                 break;        
             case (2,2)://Patada viejita, viejito se agacha
-                animator.SetInteger("State", 2);
-                animator2.SetInteger("State", 3);
-                animator3.SetInteger("State", 3);
+                StartCoroutine(GameOver());
                 break;
             default:
                 animator.SetInteger("State",0);
@@ -99,5 +96,19 @@ public class ninoScript : MonoBehaviour
         // Evaluate the states after the delay
         EvaluateStates(XBotObj.XState, YBotObj.YState);
     }
+
+
+    IEnumerator GameOver()
+    {
+        // Wait
+        
+        animator.SetInteger("State", 2);
+        animator2.SetInteger("State", 3);
+        animator3.SetInteger("State", 3);
+        yield return new WaitForSeconds(gameOverTime);
+        GameOverScreen.Setup(score.score);
+        
+    }
+
 
 }
