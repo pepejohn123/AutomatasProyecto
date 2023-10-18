@@ -833,6 +833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1035428347}
+  score: 0
 --- !u!1001 &1370687808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1114,6 +1115,7 @@ MonoBehaviour:
   animator3: {fileID: 1421724681}
   XBotObj: {fileID: 647343672}
   YBotObj: {fileID: 1421724680}
+  score: {fileID: 1035428349}
 --- !u!1 &1886111116
 GameObject:
   m_ObjectHideFlags: 0

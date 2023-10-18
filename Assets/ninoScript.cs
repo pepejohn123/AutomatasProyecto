@@ -17,6 +17,9 @@ public class ninoScript : MonoBehaviour
     private viejoScript YBotObj;
     [SerializeField]
     private scoreManager score;
+
+    public float graceTime = 0.2f;
+
  
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,22 @@ public class ninoScript : MonoBehaviour
     {
         int XState=XBotObj.XState; //VIEJITA
         int YState=YBotObj.YState; //VIEJO
+
+        if ((YState == 0 && (XState == 1 || XState == 2)) || (YState == 1 && XState == 1) || (YState == 2 && XState == 2))
+        {
+            StartCoroutine(DelayedEvaluation(XBotObj, YBotObj));
+        }
+        else
+        {
+            EvaluateStates(XState, YState);
+        }
+
+
+         
+    }
+
+    void EvaluateStates(int XState, int YState)
+    {
         switch (XState,YState)
         {
             case (0,0): //No hacen nada
@@ -69,6 +88,16 @@ public class ninoScript : MonoBehaviour
                 animator.SetInteger("State",0);
                 break;
 
-        } 
+        }
     }
+
+    IEnumerator DelayedEvaluation(viejitaScript XBotObj, viejoScript YBotObj)
+    {
+        // Wait for the old man's reaction time
+        yield return new WaitForSeconds(graceTime);
+
+        // Evaluate the states after the delay
+        EvaluateStates(XBotObj.XState, YBotObj.YState);
+    }
+
 }
