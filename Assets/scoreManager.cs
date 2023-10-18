@@ -10,17 +10,18 @@ public class scoreManager : MonoBehaviour
 
     public TextMeshProUGUI   scoreText;
 
-    int score = 0;
+    public int score = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = scoreText.text+score.ToString() + " POINTS";
+        scoreText.text = "Score:\n"+score.ToString() + " POINTS";
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        scoreText.text = "Score:\n"+score.ToString() + " POINTS";
     }
 }

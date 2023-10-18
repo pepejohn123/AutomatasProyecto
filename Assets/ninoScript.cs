@@ -15,6 +15,8 @@ public class ninoScript : MonoBehaviour
     private viejitaScript XBotObj;
     [SerializeField]
     private viejoScript YBotObj;
+    [SerializeField]
+    private scoreManager score;
  
     // Start is called before the first frame update
     void Start()
@@ -51,9 +53,12 @@ public class ninoScript : MonoBehaviour
                 break;
             case (1,2): //Puño viejita, viejito se agacha
                 animator.SetInteger("State", 1);
+                score.score++;
+
                 break;
             case (2,1): //Patada viejita, viejito salta
                 animator.SetInteger("State", 1);
+                score.score++;
                 break;        
             case (2,2)://Patada viejita, viejito se agacha
                 animator.SetInteger("State", 2);
