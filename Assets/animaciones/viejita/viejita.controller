@@ -90,7 +90,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: patada viejita
-  m_Speed: 1
+  m_Speed: 1.3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2074249493048975376}
@@ -261,9 +261,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.2636696
+  m_TransitionDuration: 0.15504158
   m_TransitionOffset: 0
-  m_ExitTime: 0.49600056
+  m_ExitTime: 0.3003896
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -286,9 +286,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.5537937
-  m_TransitionOffset: 0.10709667
-  m_ExitTime: 0.2931634
+  m_TransitionDuration: 0.40216726
+  m_TransitionOffset: 0.12712274
+  m_ExitTime: 0.316959
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
